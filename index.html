@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LLM Release Timeline</title>
+<style>
+  :root{
+    --bg:#fafaf9; --ink:#17181c; --muted:#6b7280; --line:#e5e4e0; --panel:#ffffff;
+    --w:340px; --padl:150px;
+    --c-openai:#10a37f; --c-google:#4285f4; --c-anthropic:#d97757; --c-meta:#7c3aed;
+    --c-mistral:#f97316; --c-xai:#111827; --c-deepseek:#e11d48; --c-alibaba:#ca8a04; --c-others:#6b7280;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:inherit}
+  button{font:inherit;cursor:pointer}
+  .wrap{max-width:1400px;margin:0 auto;padding:0 20px}
+
+  /* ---------- header ---------- */
+  header{padding:34px 0 6px}
+  h1{font-size:30px;letter-spacing:-.02em;margin:0 0 4px}
+  .subtitle{color:var(--muted);max-width:70ch;margin:0 0 14px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin:0 0 18px}
+  .legend .chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted)}
+  .legend .sw{width:10px;height:10px;border-radius:50%;display:inline-block}
+  .legend .shape{display:inline-block;width:12px;height:12px;border:2px solid var(--muted);border-radius:50%}
+  .legend .shape.solid{background:var(--muted)}
+
+  /* ---------- stat strip ---------- */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:0 0 14px}
+  .stat{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#fff}
+  .stat b{display:block;font-size:20px;letter-spacing:-.01em}
+  .stat span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+
+  /* ---------- filter bar ---------- */
+  .filterbar{position:sticky;top:0;z-index:20;background:rgba(250,250,249,.96);backdrop-filter:blur(6px);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin:0 -20px;padding-left:20px;padding-right:20px}
+  .filterbar .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .lab-chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-size:13px;
+    display:inline-flex;align-items:center;gap:7px;transition:opacity .12s}
+  .lab-chip .sw{width:9px;height:9px;border-radius:50%;background:var(--c)}
+  .lab-chip.off{opacity:.32}
+  .toggle{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-size:13px}
+  .toggle.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .search{margin-left:auto;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;width:220px;background:#fff}
+  .search:focus{outline:2px solid var(--ink);outline-offset:1px}
+
+  /* ---------- timeline ---------- */
+  .scroller{overflow-x:auto;position:relative;margin:18px 0 30px;scroll-snap-type:x proximity;border:1px solid var(--line);border-radius:12px;background:#fdfdfc}
+  .canvas{position:relative;min-width:100%}
+  .era{position:absolute;top:0;bottom:0;z-index:0}
+  .era .tag{position:absolute;top:8px;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#52525b}
+  .yearline{position:absolute;top:0;bottom:0;width:1px;background:var(--line);z-index:1}
+  .yearlabel{position:absolute;top:26px;transform:translateX(4px);font-size:11px;color:#a1a1aa;z-index:1}
+  .snap{position:absolute;top:0;bottom:0;width:1px;scroll-snap-align:start}
+  .lane{position:relative;height:46px;z-index:2}
+  .lane.bc{height:40px}
+  .lane .lane-label{position:sticky;left:0;display:inline-block;width:var(--padl);padding:0 10px 0 14px;z-index:5;font-size:12.5px;font-weight:600;line-height:46px;background:linear-gradient(90deg,#fdfdfc 82%,rgba(253,253,252,0))}
+  .lane.bc .lane-label{line-height:40px;color:var(--muted);border:none;background:none;cursor:pointer;font:inherit;text-align:left}
+  .lane-label .sw{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:1px;background:var(--c)}
+  .dot{position:absolute;top:50%;transform:translate(-50%,-50%);border-radius:50%;padding:0;border:none;z-index:4;transition:transform .12s ease}
+  .dot.flagship{width:13px;height:13px;background:var(--c);box-shadow:0 0 0 2px #fdfdfc}
+  .dot.mid{width:8px;height:8px;background:#fdfdfc;border:2px solid var(--c)}
+  .dot:hover,.dot:focus-visible{outline:2px solid var(--ink);outline-offset:2px;transform:translate(-50%,-50%) scale(1.3)}
+  .dot.is-sel{box-shadow:0 0 0 2px #fdfdfc,0 0 0 4px var(--ink)}
+  .dot.is-prev.flagship{box-shadow:0 0 0 2px #fdfdfc,0 0 0 4px var(--c)}
+  .dot.hidden{display:none}
+  .bcdiamond{position:absolute;top:50%;transform:translate(-50%,-50%) rotate(45deg);width:15px;height:15px;background:#52525b;border:none;z-index:4;border-radius:2px}
+  .bcdiamond:hover{outline:2px solid var(--ink);outline-offset:3px}
+  .bclabel{position:absolute;top:calc(50% + 12px);transform:translateX(-50%);font-size:11px;color:#52525b;white-space:nowrap;z-index:4}
+  .linkline{position:absolute;top:50%;height:2px;background:repeating-linear-gradient(90deg,#52525b 0 5px,transparent 5px 9px);transform:translateY(-50%);z-index:3}
+
+  /* ---------- tooltip ---------- */
+  .tip{position:fixed;z-index:60;max-width:340px;background:#17181c;color:#fafafa;border-radius:10px;padding:12px 14px;
+    font-size:13px;line-height:1.45;box-shadow:0 10px 30px rgba(0,0,0,.25);pointer-events:none;display:none;animation:tipin .12s ease}
+  @keyframes tipin{from{opacity:0;transform:translateY(4px)}}
+  .tip .t-name{font-weight:700;font-size:14px}
+  .tip .t-date{color:#a1a1aa;font-size:12px;margin-bottom:6px}
+  .tip .t-stat{display:inline-block;margin-top:8px;border:1px solid #3f3f46;border-radius:6px;padding:2px 8px;font-size:11.5px;color:#d4d4d8}
+
+  /* ---------- side panel ---------- */
+  .panel{position:fixed;top:0;right:0;bottom:0;width:400px;max-width:92vw;background:var(--panel);z-index:70;
+    box-shadow:-12px 0 40px rgba(0,0,0,.14);transform:translateX(105%);transition:transform .18s ease;overflow-y:auto;padding:22px}
+  .panel.open{transform:none}
+  .panel .close{position:absolute;top:14px;right:14px;border:1px solid var(--line);background:#fff;border-radius:50%;width:30px;height:30px;line-height:1}
+  .p-org{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+  .p-org .sw{width:9px;height:9px;border-radius:50%;background:var(--c)}
+  .p-name{font-size:24px;letter-spacing:-.02em;margin:6px 0 2px}
+  .p-date{color:var(--muted);margin:0 0 10px}
+  .badge{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-size:11.5px;margin:0 6px 6px 0;color:#3f3f46;background:#fafaf9}
+  .p-block{border-left:3px solid var(--c);padding:2px 0 2px 12px;margin:14px 0}
+  .p-block h4{margin:0 0 4px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .p-block.hype{border-left-color:#a1a1aa}
+  .p-prev{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:14px 0;background:#fafaf9}
+  .p-prev h4{margin:0 0 6px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .p-prev .delta{font-size:13px;color:#3f3f46;margin:2px 0}
+  .p-refs{margin-top:14px}
+  .p-refs a{display:block;font-size:12.5px;color:#4285f4;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:3px 0}
+  .p-refs a:hover{text-decoration:underline}
+
+  .empty{padding:30px;color:var(--muted);text-align:center}
+  .load-error{margin:40px auto;max-width:520px;border:1px solid var(--line);border-radius:12px;padding:20px;background:#fff}
+  .load-error code{background:#f4f4f2;padding:2px 6px;border-radius:6px}
+
+  /* ---------- mobile spine ---------- */
+  .spine{display:none}
+  @media (max-width:760px){
+    .scroller{display:none}
+    .search{width:100%;margin-left:0;order:9}
+    .spine{display:block;margin:16px 0 40px}
+    .sp-era{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#52525b;border-top:2px solid var(--line);padding:18px 0 4px}
+    .sp-node{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}
+    .sp-dot{flex:none;width:13px;height:13px;border-radius:50%;margin-top:5px}
+    .sp-dot.mid{width:8px;height:8px;background:#fff;border:2px solid var(--c);margin-top:7px}
+    .sp-body{min-width:0}
+    .sp-name{font-weight:700}
+    .sp-date{font-size:12px;color:var(--muted)}
+    .sp-pos{font-size:13.5px;margin-top:3px}
+    .panel{width:100vw;max-width:100vw}
+  }
+  @media (prefers-reduced-motion:reduce){.panel{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>LLM Release Timeline</h1>
+    <p class="subtitle">Eight years of frontier-model rivalry on one page &mdash; who answered whom, what got displaced, and where the hype fell flat. Not a datasheet.</p>
+    <div class="legend" id="legend"></div>
+  </header>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="filterbar">
+    <div class="row" id="labrow"></div>
+    <div class="row" style="margin-top:8px">
+      <button class="toggle" id="tgl-open" aria-pressed="false">Open-weights only</button>
+      <button class="toggle" id="tgl-mid" aria-pressed="false">Include mid-tier releases</button>
+      <input class="search" id="q" type="search" placeholder="Search model name&hellip;" aria-label="Search model name">
+    </div>
+  </div>
+
+  <div class="scroller" id="scroller" tabindex="0" aria-label="LLM release timeline, horizontal scroll">
+    <div class="canvas" id="canvas"></div>
+  </div>
+
+  <div class="spine" id="spine"></div>
+  <div class="empty" id="empty" hidden>No models match the current filters.</div>
+</div>
+
+<div class="tip" id="tip" role="tooltip"></div>
+<aside class="panel" id="panel" aria-label="Model details">
+  <button class="close" id="panel-close" aria-label="Close details">&times;</button>
+  <div id="panel-body"></div>
+</aside>
+
+<script>
+"use strict";
+/* Data */
+const ORGS = [
+  ["openai","OpenAI"],["google","Google"],["anthropic","Anthropic"],["meta","Meta"],
+  ["mistral","Mistral"],["xai","xAI"],["deepseek","DeepSeek"],["alibaba","Qwen (Alibaba)"],["others","Others"]
+];
+const ERAS = [
+  ["Pre-ChatGPT","2018-01-01","2022-11-29"],
+  ["ChatGPT boom","2022-11-30","2023-12-05"],
+  ["Multimodal war","2023-12-06","2024-09-11"],
+  ["Reasoning & agent era","2024-09-12","2027-01-01"]
+];
+const BC_CUTOFF = "2022-11-30";
+const PADL = 150, PADR = 40, T0Y = 2018, T1Y = 2027;
+const YEAR_BASE = 150, YEAR_PER_NODE = 48;
+let YEAR_W = {};  // per-year width, set by computeYearWidths() after data load
+const MIN_GAP = 26;
+
+let MODELS = [];
+const state = { labs: new Set(ORGS.map(o => o[0])), openOnly: false, showMid: false, q: "",
+                bcExpanded: false, selected: null };
+
+/* helpers */
+const DAY = 86400000;
+const ms = s => Date.parse(s + "T00:00:00Z");
+const jan1 = y => ms(y + "-01-01");
+function computeYearWidths(){
+  const per = {};
+  MODELS.forEach(n => { const y = +n.date.slice(0,4); per[y] = (per[y] || 0) + 1; });
+  YEAR_W = {};
+  for (let y = T0Y; y < T1Y; y++) YEAR_W[y] = YEAR_BASE + YEAR_PER_NODE * (per[y] || 0);
+}
+function yearX(y){  // canvas x of Jan 1 of year y
+  let x = PADL;
+  for (let yy = T0Y; yy < y; yy++) x += YEAR_W[yy];
+  return x;
+}
+function xOf(dateStr){
+  const y = +dateStr.slice(0,4);
+  const frac = (ms(dateStr) - jan1(y)) / (jan1(y+1) - jan1(y));
+  return yearX(y) + frac * YEAR_W[y];
+}
+const parseCtx = s => s == null ? null : /M$/i.test(s) ? parseFloat(s)*1e6 : /k$/i.test(s) ? parseFloat(s)*1e3 : parseFloat(s);
+const fmtCtx = n => n == null ? "?" : n >= 1e6 ? (n/1e6).toFixed(n%1e6?2:0)+"M" : (n/1e3)+"k";
+const fmtDate = s => new Date(s+"T00:00:00Z").toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"});
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+
+function matchesFilters(n){
+  if (!state.labs.has(n.org)) return false;
+  if (state.openOnly && n.weights !== "open") return false;
+  if (!state.showMid && n.tier === "mid") return false;
+  if (state.q && !(n.name.toLowerCase().includes(state.q))) return false;
+  return true;
+}
+const isBC = n => n.date < BC_CUTOFF;
+const bcEffective = () => state.bcExpanded || MODELS.some(n => isBC(n) && matchesFilters(n) && (state.q || state.openOnly));
+function visibleList(){
+  return MODELS.filter(n => isBC(n) ? bcEffective() && matchesFilters(n) : matchesFilters(n));
+}
+
+/* ---------- static chrome ---------- */
+function orgColor(org){ return `var(--c-${org})`; }
+function renderLegend(){
+  const el = document.getElementById("legend");
+  el.innerHTML = ORGS.map(([k,label]) =>
+    `<span class="chip"><span class="sw" style="background:${orgColor(k)}"></span>${label}</span>`).join("") +
+    `<span class="chip"><span class="shape solid"></span>flagship</span>
+     <span class="chip"><span class="shape"></span>mid-tier</span>`;
+}
+function renderStats(vis){
+  const fl = MODELS.filter(n => n.tier === "flagship").sort((a,b) => a.date < b.date ? -1 : 1);
+  let sum = 0; for (let i=1;i<fl.length;i++) sum += (ms(fl[i].date) - ms(fl[i-1].date)) / DAY;
+  const avg = Math.round(sum / (fl.length-1));
+  const openPct = Math.round(100 * MODELS.filter(n => n.weights === "open").length / MODELS.length);
+  document.getElementById("stats").innerHTML = `
+    <div class="stat"><b>${vis.length}<span style="font-size:13px;color:var(--muted)"> / ${MODELS.length}</span></b><span>nodes shown</span></div>
+    <div class="stat"><b>Jun 2018 &ndash; Sep 2026</b><span>span</span></div>
+    <div class="stat"><b>${avg} days</b><span>avg between flagships</span></div>
+    <div class="stat"><b>${openPct}%</b><span>open-weights nodes</span></div>`;
+}
+
+/* ---------- timeline ---------- */
+function buildTimeline(){
+  const c = document.getElementById("canvas");
+  const totalW = yearX(T1Y) + PADR;
+  c.style.width = totalW + "px";
+  let h = `<div style="height:44px"></div>`;
+  ERAS.forEach(([label,s,e],i) => {
+    const x1 = Math.max(xOf(s), PADL), x2 = xOf(e);
+    h += `<div class="era" style="left:${x1}px;width:${x2-x1}px;background:${i%2 ? "rgba(0,0,0,.035)" : "rgba(0,0,0,.015)"}">
+            <div class="tag">${esc(label)}</div></div>`;
+  });
+  for (let y = T0Y+1; y <= T1Y; y++){
+    const x = yearX(y);
+    h += `<div class="yearline" style="left:${x}px"></div>
+          <div class="yearlabel" style="left:${x}px">${y}</div>
+          <div class="snap" style="left:${x}px"></div>`;
+  }
+  // BC row (collapsed holder)
+  h += `<div class="lane bc" data-lane="bc"><button class="lane-label bc-toggle" id="bc-label" title="Click to collapse or expand">BC era</button><span class="dots" data-dots="bc"></span></div>`;
+  ORGS.forEach(([k,label]) => {
+    h += `<div class="lane" data-lane="${k}"><span class="lane-label"><span class="sw" style="background:${orgColor(k)}"></span>${label}</span><span class="dots" data-dots="${k}"></span></div>`;
+  });
+  c.innerHTML = h;
+  document.getElementById("bc-label").addEventListener("click", () => {
+    state.bcExpanded = !state.bcExpanded; state.selected = null; apply();
+  });
+}
+function layoutDots(vis){
+  const byLane = {};
+  document.querySelectorAll(".dots").forEach(d => { d.innerHTML = ""; });
+  vis.forEach(n => (byLane[n.org] ||= []).push(n));
+  const sel = [];
+  for (const [lane, ns] of Object.entries(byLane)){
+    ns.sort((a,b) => a.date < b.date ? -1 : 1);
+    const slot = document.querySelector(`.dots[data-dots="${lane}"]`);
+    let prevX = -1e9;
+    ns.forEach(n => {
+      let x = Math.max(xOf(n.date), prevX + MIN_GAP);
+      prevX = x;
+      const b = document.createElement("button");
+      b.className = `dot ${n.tier === "flagship" ? "flagship" : "mid"}${state.selected === n.id ? " is-sel" : ""}`;
+      b.style.left = x + "px"; b.style.setProperty("--c", orgColor(n.org));
+      b.dataset.id = n.id;
+      b.setAttribute("aria-label", `${n.name}, ${fmtDate(n.date)}`);
+      b.addEventListener("click", () => select(n.id));
+      b.addEventListener("mouseenter", () => showTip(n, b));
+      b.addEventListener("mouseleave", hideTip);
+      b.addEventListener("focus", () => showTip(n, b));
+      b.addEventListener("focusin", () => showTip(n, b));
+      b.addEventListener("blur", hideTip);
+      slot.appendChild(b);
+    });
+  }
+  // BC diamond (collapsed only)
+  const bcSlot = document.querySelector('.dots[data-dots="bc"]');
+  if (!bcEffective()){
+    const x = xOf("2020-06-11");
+    const d = document.createElement("button");
+    d.className = "bcdiamond"; d.style.left = x + "px";
+    d.setAttribute("aria-label", "Expand pre-ChatGPT era (4 condensed models)");
+    d.addEventListener("click", () => { state.bcExpanded = true; state.selected = null; apply(); });
+    bcSlot.appendChild(d);
+    const l = document.createElement("span");
+    l.className = "bclabel"; l.style.left = x + "px";
+    l.textContent = "BC era · 4 condensed models — click to expand";
+    bcSlot.appendChild(l);
+  }
+}
+function showTip(n, dot){
+  const t = document.getElementById("tip");
+  const stat = n.stats && n.stats.context ? `<span class="t-stat">context ${esc(n.stats.context)}</span>`
+    : n.stats && n.stats.pricePerMTok ? `<span class="t-stat">$${n.stats.pricePerMTok.in} in / $${n.stats.pricePerMTok.out} out per Mtok</span>` : "";
+  t.innerHTML = `<div class="t-name">${esc(n.name)}</div><div class="t-date">${fmtDate(n.date)} · ${esc(n.tier)} · ${n.weights}-weights</div>
+    <div>${esc(n.positioning)}</div>${stat}`;
+  t.style.display = "block";
+  const r = dot.getBoundingClientRect(), tw = 340, th = t.offsetHeight;
+  let x = Math.min(Math.max(8, r.left + r.width/2 - tw/2), innerWidth - tw - 8);
+  let y = r.top - th - 10; if (y < 8) y = r.bottom + 10;
+  t.style.left = x + "px"; t.style.top = y + "px";
+}
+function hideTip(){ document.getElementById("tip").style.display = "none"; }
+
+/* ---------- side panel ---------- */
+function select(id){ state.selected = id; apply(); openPanel(id); }
+function predecessor(n){
+  const lane = MODELS.filter(m => m.org === n.org).sort((a,b) => a.date < b.date ? -1 : 1);
+  const i = lane.findIndex(m => m.id === n.id);
+  return i > 0 ? lane[i-1] : null;
+}
+function openPanel(id){
+  const n = MODELS.find(m => m.id === id), p = predecessor(n);
+  let statsHtml = "";
+  if (n.stats){
+    const bits = [];
+    if (n.stats.context) bits.push(`context ${esc(n.stats.context)}`);
+    if (n.stats.pricePerMTok) bits.push(`$${n.stats.pricePerMTok.in} / $${n.stats.pricePerMTok.out} per Mtok (in/out)`);
+    if (n.stats.mmlu != null) bits.push(`MMLU ${esc(n.stats.mmlu)}`);
+    if (bits.length) statsHtml = `<div class="p-block"><h4>At release</h4>${bits.join(" · ")}</div>`;
+  }
+  let prevHtml = "";
+  if (p){
+    const deltas = [];
+    const a = parseCtx(p.stats && p.stats.context), b = parseCtx(n.stats && n.stats.context);
+    if (a && b && b > a) deltas.push(`context ${fmtCtx(a)} &rarr; ${fmtCtx(b)} (&times;${(b/a).toFixed(1)})`);
+    const pi = p.stats && p.stats.pricePerMTok, ni = n.stats && n.stats.pricePerMTok;
+    if (pi && ni) deltas.push(`price in $${pi.in} &rarr; $${ni.in}, out $${pi.out} &rarr; $${ni.out} per Mtok`);
+    prevHtml = `<div class="p-prev"><h4>Builds on &mdash; previous in lane</h4>
+      <b>${esc(p.name)}</b> <span class="p-date" style="margin:0">· ${fmtDate(p.date)}</span>
+      ${deltas.length ? deltas.map(d => `<div class="delta">${d}</div>`).join("") : `<div class="delta">No comparable release-time stats.</div>`}
+      <div style="font-size:13px;color:var(--muted);margin-top:4px">${esc(p.positioning)}</div></div>`;
+  }
+  const badges = `<span class="badge">${esc(n.tier)}</span><span class="badge">${n.weights}-weights</span>` +
+    (n.tags||[]).filter(t => t !== "open-weights").map(t => `<span class="badge">${esc(t)}</span>`).join("");
+  document.getElementById("panel-body").innerHTML = `
+    <span class="p-org"><span class="sw" style="background:${orgColor(n.org)}"></span>${esc(ORGS.find(o => o[0] === n.org)[1])}</span>
+    <h2 class="p-name">${esc(n.name)}</h2>
+    <p class="p-date">${fmtDate(n.date)}</p>
+    <div>${badges}</div>
+    <div class="p-block"><h4>Positioning</h4>${esc(n.positioning)}</div>
+    ${n.hype ? `<div class="p-block hype"><h4>Hype</h4>${esc(n.hype)}</div>` : ""}
+    ${statsHtml}
+    ${prevHtml}
+    <div class="p-refs"><h4 style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 4px">Refs</h4>
+      ${n.refs.map(r => `<a href="${esc(r)}" target="_blank" rel="noopener">${esc(r)}</a>`).join("")}</div>`;
+  document.getElementById("panel").classList.add("open");
+}
+function closePanel(){
+  document.getElementById("panel").classList.remove("open");
+  state.selected = null;
+  document.querySelectorAll(".dot.is-sel,.dot.is-prev").forEach(d => d.classList.remove("is-sel","is-prev"));
+  document.querySelectorAll(".linkline").forEach(d => d.remove());
+}
+document.getElementById("panel-close").addEventListener("click", () => { closePanel(); apply(); });
+addEventListener("keydown", e => { if (e.key === "Escape") { closePanel(); apply(); } });
+
+function drawLink(n){
+  document.querySelectorAll(".linkline").forEach(d => d.remove());
+  const p = predecessor(n);
+  if (!p) return;
+  const a = document.querySelector(`.dot[data-id="${p.id}"]`), b = document.querySelector(`.dot[data-id="${n.id}"]`);
+  if (!a || !b) return;
+  a.classList.add("is-prev");
+  const lane = b.closest(".lane"), x1 = parseFloat(a.style.left), x2 = parseFloat(b.style.left);
+  const l = document.createElement("div");
+  l.className = "linkline";
+  l.style.left = Math.min(x1,x2) + 7 + "px";
+  l.style.width = Math.abs(x2 - x1) - 14 + "px";
+  lane.appendChild(l);
+}
+
+/* ---------- mobile spine ---------- */
+function buildSpine(vis){
+  const sp = document.getElementById("spine");
+  if (!vis.length){ sp.innerHTML = ""; return; }
+  let h = "", lastEra = null;
+  const eraOf = d => ERAS.find(([,s,e]) => d >= s && d <= e)[0];
+  vis.forEach(n => {
+    const e = eraOf(n.date);
+    if (e !== lastEra){ h += `<div class="sp-era">${esc(e)}</div>`; lastEra = e; }
+    h += `<div class="sp-node" data-id="${n.id}" role="button" tabindex="0">
+      <span class="sp-dot ${n.tier === "mid" ? "mid" : ""}" style="--c:${orgColor(n.org)};background:${n.tier === "mid" ? "#fff" : orgColor(n.org)};border-color:${orgColor(n.org)}"></span>
+      <div class="sp-body">
+        <div><span class="sp-name">${esc(n.name)}</span> <span class="sp-date">· ${fmtDate(n.date)} · ${esc(n.tier)}</span></div>
+        <div class="sp-pos">${esc(n.positioning)}</div>
+        ${n.hype ? `<div class="sp-pos" style="color:var(--muted)">${esc(n.hype)}</div>` : ""}
+      </div></div>`;
+  });
+  sp.innerHTML = h;
+  sp.querySelectorAll(".sp-node").forEach(el => {
+    el.addEventListener("click", () => select(el.dataset.id));
+    el.addEventListener("keydown", e => { if (e.key === "Enter") select(el.dataset.id); });
+  });
+}
+
+/* ---------- filters ---------- */
+function renderFilters(){
+  const row = document.getElementById("labrow");
+  row.innerHTML = ORGS.map(([k,label]) =>
+    `<button class="lab-chip${state.labs.has(k) ? "" : " off"}" data-lab="${k}" aria-pressed="${state.labs.has(k)}">
+       <span class="sw" style="--c:${orgColor(k)}"></span>${label}</button>`).join("");
+  row.querySelectorAll(".lab-chip").forEach(b => b.addEventListener("click", () => {
+    const k = b.dataset.lab;
+    state.labs.has(k) ? state.labs.delete(k) : state.labs.add(k);
+    renderFilters(); apply();
+  }));
+  document.getElementById("tgl-open").classList.toggle("on", state.openOnly);
+  document.getElementById("tgl-mid").classList.toggle("on", state.showMid);
+}
+document.getElementById("tgl-open").addEventListener("click", e => {
+  state.openOnly = !state.openOnly; e.currentTarget.setAttribute("aria-pressed", state.openOnly);
+  renderFilters(); apply();
+});
+document.getElementById("tgl-mid").addEventListener("click", e => {
+  state.showMid = !state.showMid; e.currentTarget.setAttribute("aria-pressed", state.showMid);
+  renderFilters(); apply();
+});
+document.getElementById("q").addEventListener("input", e => { state.q = e.target.value.trim().toLowerCase(); apply(); });
+
+/* ---------- apply ---------- */
+function apply(){
+  const vis = visibleList();
+  layoutDots(vis);
+  buildSpine(vis);
+  renderStats(vis);
+  document.getElementById("empty").hidden = vis.length > 0;
+  if (state.selected){
+    const n = MODELS.find(m => m.id === state.selected);
+    if (n && vis.some(v => v.id === n.id)) drawLink(n); else closePanel();
+  }
+  hideTip();
+}
+
+/* ---------- boot ---------- */
+async function boot(){
+  try{
+    const r = await fetch("models.json");
+    if (!r.ok) throw new Error(r.status);
+    MODELS = (await r.json()).sort((a,b) => a.date < b.date ? -1 : 1);
+    computeYearWidths();
+  }catch(err){
+    document.querySelector(".wrap").insertAdjacentHTML("afterbegin",
+      `<div class="load-error"><b>Could not load models.json.</b><br>
+       Browsers block <code>fetch()</code> on <code>file://</code> pages. Serve the folder instead:<br><br>
+       <code>python3 -m http.server 8000</code> &rarr; open <code>http://localhost:8000</code></div>`);
+    return;
+  }
+  renderLegend();
+  renderFilters();
+  buildTimeline();
+  apply();
+}
+boot();
+</script>
+</body>
+</html>

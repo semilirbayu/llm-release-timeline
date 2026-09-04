@@ -1,0 +1,1938 @@
+[
+  {
+    "id": "gpt-1",
+    "org": "openai",
+    "name": "GPT-1",
+    "date": "2018-06-11",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "First to show that unsupervised pre-training plus fine-tuning boosts NLP task performance — the original generative pre-trained transformer that started the GPT line.",
+    "hype": null,
+    "refs": [
+      "https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf",
+      "https://openai.com/index/language-unsupervised/"
+    ]
+  },
+  {
+    "id": "bert",
+    "org": "google",
+    "name": "BERT",
+    "date": "2018-10-11",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "context",
+      "open-weights"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "First to show bidirectional transformer pretraining at scale — BERT-Large set SOTA on 11 NLP benchmarks at once and kicked off the pretrained-encoder era that every later model in this timeline builds on.",
+    "hype": null,
+    "refs": [
+      "https://arxiv.org/abs/1810.04805",
+      "https://github.com/google-research/bert"
+    ]
+  },
+  {
+    "id": "gpt-2",
+    "org": "openai",
+    "name": "GPT-2",
+    "date": "2019-02-14",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Scaled GPT-1's recipe up to 1.5B parameters and became the first model withheld as 'too dangerous to release', with full weights only coming out after a staged disclosure — OpenAI's first open-weights release in this line.",
+    "hype": "Announced Feb 2019 as 'too dangerous to release'; the full weights only followed in Nov 2019 after a staged-release controversy.",
+    "refs": [
+      "https://openai.com/index/better-language-models/",
+      "https://openai.com/index/gpt-2-1-5b-release/"
+    ]
+  },
+  {
+    "id": "gpt-3",
+    "org": "openai",
+    "name": "GPT-3",
+    "date": "2020-06-11",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Scaled GPT-2's 1.5B parameters to 175B and pulled the weights back behind a closed API — first made publicly accessible via the OpenAI API on 2020-06-11, kick-starting the LLM API ecosystem.",
+    "hype": null,
+    "refs": [
+      "https://openai.com/index/openai-api/"
+    ]
+  },
+  {
+    "id": "chatgpt",
+    "org": "openai",
+    "name": "ChatGPT",
+    "date": "2022-11-30",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "agent"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced the developer-only GPT-3 API with a free conversational interface built on GPT-3.5 — the first OpenAI model product aimed at everyone, not just API customers.",
+    "hype": "Reached ~1M users in 5 days, triggering the mainstream LLM wave.",
+    "refs": [
+      "https://openai.com/index/chatgpt/"
+    ]
+  },
+  {
+    "id": "claude-1",
+    "org": "anthropic",
+    "name": "Claude 1",
+    "date": "2023-03-14",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "context"
+    ],
+    "stats": {
+      "context": "100k",
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Anthropic's first public model and first to market a 100K-token context window, arriving via Slack and API access rather than a consumer app.",
+    "hype": "Its release landed on the exact same day as GPT-4 — Anthropic's debut was instantly measured against the model that defined 2023.",
+    "refs": [
+      "https://www.anthropic.com/index/claude-now-in-slack"
+    ]
+  },
+  {
+    "id": "gpt-4",
+    "org": "openai",
+    "name": "GPT-4",
+    "date": "2023-03-14",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "multimodal"
+    ],
+    "stats": {
+      "context": "32k",
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "First flagship LLM to accept image inputs, and a step-change in capability over GPT-3.5 — passing the bar exam at ~90th percentile.",
+    "hype": null,
+    "refs": [
+      "https://openai.com/index/gpt-4-research/"
+    ]
+  },
+  {
+    "id": "claude-2",
+    "org": "anthropic",
+    "name": "Claude 2",
+    "date": "2023-07-11",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "context"
+    ],
+    "stats": {
+      "context": "100k",
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced Claude 1 with stronger coding and reasoning scores and launched claude.ai, Anthropic's first consumer-facing chat app, taking the fight to consumer chatbots' home turf.",
+    "hype": null,
+    "refs": [
+      "https://www.anthropic.com/index/claude-2"
+    ]
+  },
+  {
+    "id": "llama-2",
+    "org": "meta",
+    "name": "Llama 2",
+    "date": "2023-07-18",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Meta's first commercially usable open-weights LLM — free for most commercial use and downloadable same day with Microsoft, it displaced the research-only open-weights status quo.",
+    "hype": null,
+    "refs": [
+      "https://llama.meta.com/llama2"
+    ]
+  },
+  {
+    "id": "mistral-7b",
+    "org": "mistral",
+    "name": "Mistral 7B",
+    "date": "2023-09-27",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights",
+      "efficiency"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced Llama 2 13B as the go-to small open model — the best 7B of its time, it even neared Llama 34B while shipping Apache 2.0 weights.",
+    "hype": null,
+    "refs": [
+      "https://mistral.ai/news/announcing-mistral-7b"
+    ]
+  },
+  {
+    "id": "grok-1",
+    "org": "xai",
+    "name": "Grok-1",
+    "date": "2023-11-03",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "xAI's first model, gated to X Premium+ subscribers at launch. Its 314B-param MoE weights were open-sourced months later (2024-03-17) — the lab's first weights release.",
+    "hype": null,
+    "refs": [
+      "https://x.ai/news/grok",
+      "https://x.ai/news/grok-os"
+    ]
+  },
+  {
+    "id": "gpt-4-turbo",
+    "org": "openai",
+    "name": "GPT-4 Turbo",
+    "date": "2023-11-06",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "context"
+    ],
+    "stats": {
+      "context": "128k",
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Quadrupled GPT-4's 32k context window to 128k tokens, added vision, and crashed the price by 3x.",
+    "hype": null,
+    "refs": [
+      "https://openai.com/index/new-models-and-developer-products-announced-at-devday/"
+    ]
+  },
+  {
+    "id": "gemini-1-0",
+    "org": "google",
+    "name": "Gemini 1.0",
+    "date": "2023-12-06",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "multimodal",
+      "moe"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Google's first natively multimodal frontier family — Ultra outperformed GPT-4 on most major benchmarks, while Pro/Nano tiers reached Bard and Pixel devices at launch.",
+    "hype": "Google admitted its launch demo video was edited rather than a real-time interaction, drawing criticism for overstaging what Gemini could actually do.",
+    "refs": [
+      "https://blog.google/technology/ai/google-gemini-ai/",
+      "https://deepmind.google/models/gemini/"
+    ]
+  },
+  {
+    "id": "mixtral-8x7b",
+    "org": "mistral",
+    "name": "Mixtral 8x7B",
+    "date": "2023-12-11",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights",
+      "moe",
+      "efficiency"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "First high-quality openly licensed sparse MoE — activating only 13B of 47B parameters, it matched or beat GPT-3.5 and Llama 2 70B and displaced Mistral 7B as the open-weights value pick.",
+    "hype": null,
+    "refs": [
+      "https://mistral.ai/news/mixtral-of-experts"
+    ]
+  },
+  {
+    "id": "gemini-1-5-pro",
+    "org": "google",
+    "name": "Gemini 1.5 Pro",
+    "date": "2024-02-15",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "context",
+      "moe"
+    ],
+    "stats": {
+      "context": "1M",
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "First frontier model with a widely noted 1M-token context window — a leap of orders of magnitude over Gemini 1.0, paired with MoE architecture, first shown in limited preview with GA in May 2024.",
+    "hype": null,
+    "refs": [
+      "https://blog.google/technology/ai/google-gemini-next-gen-model-ai-2024/",
+      "https://deepmind.google/models/gemini/"
+    ]
+  },
+  {
+    "id": "mistral-large",
+    "org": "mistral",
+    "name": "Mistral Large",
+    "date": "2024-02-26",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "coding"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Mistral's first closed, API-only frontier model — a reversal of its open-weights identity (Mixtral was still the last open flagship), positioned for coding.",
+    "hype": "Launched the same day as Mistral's $415M Series B and the Le Chat assistant, turning the release into a business-model story about the open-weights champion going closed.",
+    "refs": [
+      "https://mistral.ai/news/mistral-large"
+    ]
+  },
+  {
+    "id": "claude-3",
+    "org": "anthropic",
+    "name": "Claude 3",
+    "date": "2024-03-04",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "multimodal",
+      "context"
+    ],
+    "stats": {
+      "context": "200k",
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Its Opus tier became the first model to beat GPT-4 on several benchmarks, breaking OpenAI's hold on the flagship lane, with a 200K context and vision input.",
+    "hype": null,
+    "refs": [
+      "https://www.anthropic.com/news/introducing-the-next-generation-of-claude"
+    ]
+  },
+  {
+    "id": "grok-1-5",
+    "org": "xai",
+    "name": "Grok-1.5",
+    "date": "2024-03-28",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "context"
+    ],
+    "stats": {
+      "context": "128k",
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced Grok-1 with improved reasoning and a 128k-token context window — xAI's first major context jump.",
+    "hype": null,
+    "refs": [
+      "https://x.ai/news/grok-1.5"
+    ]
+  },
+  {
+    "id": "llama-3",
+    "org": "meta",
+    "name": "Llama 3",
+    "date": "2024-04-18",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced Llama 2 across the board — trained on 15T tokens, the 70B beat Gemini Pro 1.5 and Claude 3 Sonnet on most benchmarks while staying open-weights, and launched alongside the Meta AI assistant on Facebook and WhatsApp.",
+    "hype": null,
+    "refs": [
+      "https://llama.meta.com/llama3"
+    ]
+  },
+  {
+    "id": "deepseek-v2",
+    "org": "deepseek",
+    "name": "DeepSeek-V2",
+    "date": "2024-05-06",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights",
+      "moe",
+      "price-disrupt",
+      "efficiency"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Crashed the price of inference in China: multi-head latent attention plus MoE slashed output cost to ~2 RMB per million tokens, a price level that displaced incumbents' pricing across the market.",
+    "hype": "Its launch triggered China's LLM price war.",
+    "refs": [
+      "https://huggingface.co/deepseek-ai/DeepSeek-V2"
+    ]
+  },
+  {
+    "id": "gpt-4o",
+    "org": "openai",
+    "name": "GPT-4o",
+    "date": "2024-05-13",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "multimodal",
+      "efficiency"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "First 'omni' flagship natively handling text, audio, and vision in one model — ~2x the speed and half the price of GPT-4 Turbo, with free-tier access.",
+    "hype": null,
+    "refs": [
+      "https://openai.com/index/hello-gpt-4o/"
+    ]
+  },
+  {
+    "id": "claude-3-5-sonnet",
+    "org": "anthropic",
+    "name": "Claude 3.5 Sonnet",
+    "date": "2024-06-20",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "coding",
+      "agent"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "A mid-size model that displaced Anthropic's own flagship — outperforming Claude 3 Opus on coding and reasoning at Sonnet price — defining the cost-efficiency frontier of mid-2024.",
+    "hype": null,
+    "refs": [
+      "https://www.anthropic.com/news/claude-3-5-sonnet"
+    ]
+  },
+  {
+    "id": "llama-3-1-405b",
+    "org": "meta",
+    "name": "Llama 3.1 405B",
+    "date": "2024-07-23",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights",
+      "context"
+    ],
+    "stats": {
+      "context": "128k",
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "First openly downloadable frontier-class model — the 405B was competitive with GPT-4o and Claude 3.5 Sonnet, something no prior open release achieved, and stretched Llama 3's context to 128K.",
+    "hype": null,
+    "refs": [
+      "https://ai.meta.com/blog/meta-llama-3-1/"
+    ]
+  },
+  {
+    "id": "grok-2",
+    "org": "xai",
+    "name": "Grok-2",
+    "date": "2024-08-13",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "multimodal"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced Grok-1.5 as xAI's frontier, matching frontier-2024 quality; image generation (Dec 2024) and an API beta (2024-11-04) followed within months.",
+    "hype": null,
+    "refs": [
+      "https://x.ai/news/grok-2"
+    ]
+  },
+  {
+    "id": "o1",
+    "org": "openai",
+    "name": "o1-preview",
+    "date": "2024-09-12",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "reasoning"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Opened the test-time-compute reasoning lane: first broadly available reasoning model, solving 83% of AIME qualifiers where GPT-4o managed ~13%.",
+    "hype": null,
+    "refs": [
+      "https://openai.com/index/introducing-openai-o1-preview/"
+    ]
+  },
+  {
+    "id": "qwen2-5",
+    "org": "alibaba",
+    "name": "Qwen2.5",
+    "date": "2024-09-19",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights",
+      "coding"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Open-weights family trained on 18T tokens that quickly became the world's most fine-tuned open model base.",
+    "hype": null,
+    "refs": [
+      "https://qwenlm.github.io/blog/qwen2.5/"
+    ]
+  },
+  {
+    "id": "claude-3-5-sonnet-v2",
+    "org": "anthropic",
+    "name": "Claude 3.5 Sonnet v2",
+    "date": "2024-10-22",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "agent",
+      "coding"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "First to ship 'computer use' — a public beta of general screen, keyboard and mouse control — turning the mid-tier Sonnet into a leading agentic coding model.",
+    "hype": "The computer-use beta was the release's signature moment: a model operating a computer like a human user.",
+    "refs": [
+      "https://www.anthropic.com/news/3-5-models-and-computer-use"
+    ]
+  },
+  {
+    "id": "qwq-32b-preview",
+    "org": "alibaba",
+    "name": "QwQ-32B-Preview",
+    "date": "2024-11-28",
+    "tier": "mid",
+    "weights": "open",
+    "tags": [
+      "open-weights",
+      "reasoning"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "First to bring o1-style reasoning to Apache 2.0 open weights — and it beat o1 itself on some math benchmarks at release.",
+    "hype": null,
+    "refs": [
+      "https://qwenlm.github.io/blog/qwq-32b-preview/"
+    ]
+  },
+  {
+    "id": "gemini-2-0-flash",
+    "org": "google",
+    "name": "Gemini 2.0 Flash",
+    "date": "2024-12-11",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "agent",
+      "efficiency"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "First Gemini 2.0 model, framing Google's 'agentic era' — beat 1.5 Pro on key benchmarks at 2x speed and crashed the price of that tier by opening it to all Gemini users on day one.",
+    "hype": null,
+    "refs": [
+      "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024/"
+    ]
+  },
+  {
+    "id": "deepseek-v3",
+    "org": "deepseek",
+    "name": "DeepSeek-V3",
+    "date": "2024-12-26",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights",
+      "moe",
+      "efficiency"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Scaled the V2 recipe into a 671B-param MoE that matched GPT-4o and Claude 3.5 Sonnet on many benchmarks — for a reported ~$5.6M in GPU-hours.",
+    "hype": "The reported ~$5.6M training bill for a model matching GPT-4o and Claude 3.5 Sonnet became the release's dominant storyline.",
+    "refs": [
+      "https://huggingface.co/deepseek-ai/DeepSeek-V3"
+    ]
+  },
+  {
+    "id": "deepseek-r1",
+    "org": "deepseek",
+    "name": "DeepSeek-R1",
+    "date": "2025-01-20",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights",
+      "reasoning",
+      "price-disrupt"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Matched o1-class reasoning and shipped it MIT-licensed — the first open-weights model to reach that class, displacing the assumption that frontier reasoning stays closed.",
+    "hype": "Its free app overtook ChatGPT at #1 on the US iOS App Store (Jan 27), and the fallout triggered an 18% Nvidia share drop.",
+    "refs": [
+      "https://huggingface.co/deepseek-ai/DeepSeek-R1"
+    ]
+  },
+  {
+    "id": "grok-3",
+    "org": "xai",
+    "name": "Grok 3",
+    "date": "2025-02-19",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "reasoning"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced Grok 2 as xAI's flagship, trained on the Colossus cluster and branded 'The Age of Reasoning Agents' — xAI's entry into the reasoning-model wave QwQ and R1 had opened.",
+    "hype": null,
+    "refs": [
+      "https://x.ai/news/grok-3"
+    ]
+  },
+  {
+    "id": "claude-3-7-sonnet",
+    "org": "anthropic",
+    "name": "Claude 3.7 Sonnet",
+    "date": "2025-02-24",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "reasoning",
+      "coding"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "First hybrid reasoning model, letting users toggle extended thinking within one model instead of choosing between separate reasoning and chat models, while topping agentic coding benchmarks at release.",
+    "hype": null,
+    "refs": [
+      "https://www.anthropic.com/news/claude-3-7-sonnet"
+    ]
+  },
+  {
+    "id": "gpt-4-5",
+    "org": "openai",
+    "name": "GPT-4.5",
+    "date": "2025-02-27",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "efficiency"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "OpenAI's largest 'classic' pre-trained model, with better world knowledge and EQ — but a dead end in the line, superseded by GPT-5 months later as the reasoning era took over.",
+    "hype": null,
+    "refs": [
+      "https://openai.com/index/introducing-gpt-4-5/"
+    ]
+  },
+  {
+    "id": "gemini-2-5-pro",
+    "org": "google",
+    "name": "Gemini 2.5 Pro",
+    "date": "2025-03-25",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "reasoning",
+      "context"
+    ],
+    "stats": {
+      "context": "1M",
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "First Gemini with built-in 'thinking' via a controllable reasoning budget, plus a 1M-token context — displaced the Gemini 2.0 generation as Google's flagship.",
+    "hype": "Debuted at #1 on the LMArena leaderboard on release.",
+    "refs": [
+      "https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/"
+    ]
+  },
+  {
+    "id": "llama-4",
+    "org": "meta",
+    "name": "Llama 4",
+    "date": "2025-04-05",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights",
+      "moe",
+      "multimodal"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Meta's first natively multimodal MoE Llama generation — but the launch flopped because the LMArena benchmark controversy over an unreleased experimental variant marred it.",
+    "hype": "Benchmark controversy: LMArena scores came from an unreleased experimental variant rather than the shipped Llama 4 model, marring the launch.",
+    "refs": [
+      "https://ai.meta.com/blog/the-llama-4-herd/"
+    ]
+  },
+  {
+    "id": "o3",
+    "org": "openai",
+    "name": "o3",
+    "date": "2025-04-16",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "reasoning",
+      "agent"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced o1 as the reasoning flagship and became the first model to pass Codeforces at elite (2727 Elo) level; announced at '12 Days of Shipmas' in Dec 2024 and publicly released with o4-mini on 2025-04-16.",
+    "hype": null,
+    "refs": [
+      "https://openai.com/index/introducing-o3-and-o4-mini/"
+    ]
+  },
+  {
+    "id": "qwen3",
+    "org": "alibaba",
+    "name": "Qwen3",
+    "date": "2025-04-29",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights",
+      "moe",
+      "reasoning"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Doubled Qwen2.5's 18T training tokens to 36T and made thinking/non-thinking modes switchable inside one Apache 2.0 family spanning 0.6B to 235B-A22B across 119 languages.",
+    "hype": null,
+    "refs": [
+      "https://qwenlm.github.io/blog/qwen3/"
+    ]
+  },
+  {
+    "id": "mistral-medium-3",
+    "org": "mistral",
+    "name": "Mistral Medium 3",
+    "date": "2025-05-07",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "multimodal",
+      "efficiency",
+      "coding"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Crashed the price of frontier-class multimodal — near-Mistral-Large performance at roughly 1/8 the cost, positioned for coding and STEM enterprise workloads.",
+    "hype": null,
+    "refs": [
+      "https://mistral.ai/news/mistral-medium-3",
+      "https://docs.mistral.ai/resources/changelogs"
+    ]
+  },
+  {
+    "id": "claude-4",
+    "org": "anthropic",
+    "name": "Claude 4",
+    "date": "2025-05-22",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "coding",
+      "agent",
+      "reasoning"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Opus 4 set a new SOTA on SWE-bench (~72.5%), extending the agentic coding lead Claude 3.7 Sonnet had taken, while Sonnet 4 shipped Claude Code to GA — a step change in long-horizon agentic coding.",
+    "hype": null,
+    "refs": [
+      "https://www.anthropic.com/news/claude-4"
+    ]
+  },
+  {
+    "id": "grok-4",
+    "org": "xai",
+    "name": "Grok 4",
+    "date": "2025-07-09",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "reasoning",
+      "agent"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced Grok 3 with xAI's first native tool use plus real-time search, adding a SuperGrok Heavy multi-agent tier for the top end.",
+    "hype": null,
+    "refs": [
+      "https://x.ai/news/grok-4"
+    ]
+  },
+  {
+    "id": "kimi-k2",
+    "org": "others",
+    "name": "Kimi K2",
+    "date": "2025-07-11",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights",
+      "moe",
+      "agent",
+      "price-disrupt"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "First open-weights agentic flagship to match frontier closed models — a 1T-param MoE with 32B active parameters, at a fraction of rivals' cost.",
+    "hype": null,
+    "refs": [
+      "https://moonshotai.github.io/Kimi-K2/"
+    ]
+  },
+  {
+    "id": "glm-4-5",
+    "org": "others",
+    "name": "GLM-4.5",
+    "date": "2025-07-28",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights",
+      "moe",
+      "agent",
+      "reasoning"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Followed Kimi K2 into the open agentic-MoE field with a 355B-A32B MIT-licensed hybrid reasoning/agentic model, topping open-model agentic benchmarks and shipping FP8 weights.",
+    "hype": null,
+    "refs": [
+      "https://z.ai/blog/glm-4.5"
+    ]
+  },
+  {
+    "id": "gpt-5",
+    "org": "openai",
+    "name": "GPT-5",
+    "date": "2025-08-07",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "reasoning",
+      "agent"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Collapsed the separate reasoning lane back into the flagship: a unified system with a built-in reasoning router, shipped to all ChatGPT users (incl. free tier) on launch day with a ~45% drop in hallucinations vs GPT-4o.",
+    "hype": null,
+    "refs": [
+      "https://openai.com/index/introducing-gpt-5/"
+    ]
+  },
+  {
+    "id": "qwen3-max",
+    "org": "alibaba",
+    "name": "Qwen3-Max",
+    "date": "2025-09-24",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "moe",
+      "agent",
+      "coding"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Alibaba's first trillion-parameter flagship — and a break from its open-weights streak: proprietary, API-only, with GA thinking mode on Sep 24 after a Sep 5 preview.",
+    "hype": null,
+    "refs": [
+      "https://www.alibabacloud.com/blog/qwen3-max-just-scale-it_602621"
+    ]
+  },
+  {
+    "id": "claude-sonnet-4-5",
+    "org": "anthropic",
+    "name": "Claude Sonnet 4.5",
+    "date": "2025-09-29",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "coding",
+      "agent",
+      "reasoning"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Raised the family's SWE-bench Verified SOTA from Claude 4's ~72.5% to ~77.2% and sustained autonomous focus for 30+ hours on long tasks, adding memory and context-editing features.",
+    "hype": null,
+    "refs": [
+      "https://www.anthropic.com/news/claude-sonnet-4-5"
+    ]
+  },
+  {
+    "id": "kimi-k2-thinking",
+    "org": "others",
+    "name": "Kimi K2 Thinking",
+    "date": "2025-11-06",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "reasoning",
+      "agent",
+      "open-weights"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Extended Kimi K2's agentic base with a dedicated long-horizon reasoning and tool-use mode, kept open-weights.",
+    "hype": null,
+    "refs": [
+      "https://huggingface.co/moonshotai/Kimi-K2-Thinking"
+    ]
+  },
+  {
+    "id": "gpt-5-1",
+    "org": "openai",
+    "name": "GPT-5.1",
+    "date": "2025-11-12",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "reasoning"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Adaptive-reasoning successor to GPT-5, rolled out in ChatGPT on 2025-11-12 with API access announced the following day.",
+    "hype": null,
+    "refs": [
+      "https://openai.com/index/gpt-5-1-for-developers/",
+      "https://openai.com/index/gpt-5-1/"
+    ]
+  },
+  {
+    "id": "grok-4-1",
+    "org": "xai",
+    "name": "Grok 4.1",
+    "date": "2025-11-17",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "reasoning",
+      "agent"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced Grok 4 as xAI's late-2025 flagship, later joined by a Fast variant and agent tooling — and itself superseded by Grok 4.20 in Feb 2026.",
+    "hype": null,
+    "refs": [
+      "https://x.ai/news/grok-4-1"
+    ]
+  },
+  {
+    "id": "gemini-3-pro",
+    "org": "google",
+    "name": "Gemini 3 Pro",
+    "date": "2025-11-18",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "reasoning",
+      "multimodal",
+      "agent"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Third-generation flagship that displaced Gemini 2.5 Pro atop Google's lineup, shipping in the Gemini app on day one rather than a staged rollout.",
+    "hype": "Launched at #1 across major reasoning and coding leaderboards.",
+    "refs": [
+      "https://blog.google/products/gemini/gemini-3/",
+      "https://www.scriptbyai.com/google-ai-timeline-biggest-moments/"
+    ]
+  },
+  {
+    "id": "claude-opus-4-5",
+    "org": "anthropic",
+    "name": "Claude Opus 4.5",
+    "date": "2025-11-24",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "coding",
+      "agent",
+      "reasoning"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Frontier Opus that displaced the ~77.2% SWE-bench Verified mark set by Sonnet 4.5, pushing it to ~80.9% while cutting prices aggressively and introducing effort-based control and strong computer use.",
+    "hype": null,
+    "refs": [
+      "https://www.anthropic.com/news/claude-opus-4-5"
+    ]
+  },
+  {
+    "id": "deepseek-v3-2",
+    "org": "deepseek",
+    "name": "DeepSeek-V3.2",
+    "date": "2025-12-01",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "reasoning",
+      "agent",
+      "open-weights",
+      "moe",
+      "efficiency"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Brought thinking during tool use to DeepSeek's open-weights flagship line, holding the general-flagship slot until the V4 Preview in April 2026.",
+    "hype": null,
+    "refs": [
+      "https://api-docs.deepseek.com/news/news251201",
+      "https://www.scriptbyai.com/deepseek-timeline-release-dates/"
+    ]
+  },
+  {
+    "id": "mistral-large-3",
+    "org": "mistral",
+    "name": "Mistral Large 3",
+    "date": "2025-12-02",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights",
+      "moe",
+      "agent"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced Mistral Medium 3 as flagship — and reversed the original Mistral Large's closed turn, returning the Large line (mistral-large-2512) to open weights alongside Ministral 3.",
+    "hype": null,
+    "refs": [
+      "https://docs.mistral.ai/resources/changelogs",
+      "https://www.scriptbyai.com/ai-model-release-calendar/"
+    ]
+  },
+  {
+    "id": "gpt-5-2",
+    "org": "openai",
+    "name": "GPT-5.2",
+    "date": "2025-12-11",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "reasoning",
+      "agent"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": {
+        "in": 1.75,
+        "out": 14.0
+      }
+    },
+    "positioning": "First model to beat or tie human experts on GDPval (70.9%), plus 80% SWE-bench Verified and 52.9% ARC-AGI-2 — a broad frontier sweep in one release, stepping up from mid-tier GPT-5.1.",
+    "hype": null,
+    "refs": [
+      "https://openai.com/index/introducing-gpt-5-2/"
+    ]
+  },
+  {
+    "id": "gemini-3-flash",
+    "org": "google",
+    "name": "Gemini 3 Flash",
+    "date": "2025-12-17",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "multimodal",
+      "efficiency"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Extended the Gemini 3 generation down from 3 Pro — the faster everyday/developer workhorse of the same generation, trading Pro-tier depth for speed and reach.",
+    "hype": null,
+    "refs": [
+      "https://www.scriptbyai.com/google-ai-timeline-biggest-moments/"
+    ]
+  },
+  {
+    "id": "kimi-k2-5",
+    "org": "others",
+    "name": "Kimi K2.5",
+    "date": "2026-01-27",
+    "tier": "mid",
+    "weights": "open",
+    "tags": [
+      "multimodal",
+      "agent",
+      "open-weights"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Succeeded the K2 Thinking lineage by folding visual input, reasoning, coding and agent modes — including an Agent Swarm preview — into one general Kimi model.",
+    "hype": null,
+    "refs": [
+      "https://www.scriptbyai.com/kimi-model-timeline/"
+    ]
+  },
+  {
+    "id": "claude-opus-4-6",
+    "org": "anthropic",
+    "name": "Claude Opus 4.6",
+    "date": "2026-02-05",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "coding",
+      "agent",
+      "context"
+    ],
+    "stats": {
+      "context": "1M",
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Extended the Opus line's context from Claude 3's 200K to a beta 1M window while adding stronger planning and code review on top of Opus 4.5's frontier coding.",
+    "hype": "Kicked off a rapid 4.x refresh cadence, with Sonnet 4.6 following on Feb 17.",
+    "refs": [
+      "https://www.anthropic.com/news/claude-opus-4-6"
+    ]
+  },
+  {
+    "id": "gpt-5-3-codex",
+    "org": "openai",
+    "name": "GPT-5.3-Codex",
+    "date": "2026-02-05",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "coding",
+      "agent"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Traded GPT-5.2's broad frontier sweep for a focused lane: an agentic coding model for professional software work, with the ultra-fast real-time Codex-Spark variant following Feb 12.",
+    "hype": null,
+    "refs": [
+      "https://openai.com/index/introducing-gpt-5-3-codex/"
+    ]
+  },
+  {
+    "id": "qwen3-5",
+    "org": "alibaba",
+    "name": "Qwen3.5",
+    "date": "2026-02-15",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "multimodal",
+      "agent",
+      "open-weights",
+      "moe"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Brought native multimodality (text/image/video) into the main open-weight Qwen family for the first time, starting with Qwen3.5-397B-A17B.",
+    "hype": null,
+    "refs": [
+      "https://www.scriptbyai.com/qwen-timeline/"
+    ]
+  },
+  {
+    "id": "grok-4-20-beta",
+    "org": "xai",
+    "name": "Grok 4.20",
+    "date": "2026-02-15",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "agent",
+      "context"
+    ],
+    "stats": {
+      "context": "2M",
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced Grok 4.1 with a 4-agent multi-agent architecture and a 2M-token context window — the largest context in this timeline.",
+    "hype": null,
+    "refs": [
+      "https://felloai.com/all-we-know-so-far-about-grok-5/"
+    ]
+  },
+  {
+    "id": "claude-sonnet-4-6",
+    "org": "anthropic",
+    "name": "Claude Sonnet 4.6",
+    "date": "2026-02-17",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "coding",
+      "agent"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Broad-spectrum refresh following Opus 4.6's planning and code-review gains, extending the upgrade across coding, computer use, long-context reasoning and agent planning.",
+    "hype": null,
+    "refs": [
+      "https://www.anthropic.com/news/claude-sonnet-4-6"
+    ]
+  },
+  {
+    "id": "gemini-3-1-pro",
+    "org": "google",
+    "name": "Gemini 3.1 Pro",
+    "date": "2026-02-19",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "reasoning",
+      "agent",
+      "multimodal"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Became Google's Pro-tier flagship for complex reasoning and agent tasks over 3.1 predecessors' Flash-tier sibling — and held the top-Pro spot until the 3.5/3.8-era releases displaced it.",
+    "hype": null,
+    "refs": [
+      "https://www.scriptbyai.com/google-ai-timeline-biggest-moments/"
+    ]
+  },
+  {
+    "id": "gpt-5-4",
+    "org": "openai",
+    "name": "GPT-5.4",
+    "date": "2026-03-05",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "reasoning",
+      "coding",
+      "agent"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Folded GPT-5.3-Codex's coding focus back into a general model: unified Thinking/Pro reasoning, coding, and agentic workflows, with mini/nano variants following Mar 17.",
+    "hype": null,
+    "refs": [
+      "https://openai.com/index/introducing-gpt-5-4/"
+    ]
+  },
+  {
+    "id": "muse-spark",
+    "org": "meta",
+    "name": "Muse Spark",
+    "date": "2026-04-08",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "multimodal",
+      "reasoning",
+      "coding",
+      "context"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "First Meta Superintelligence Labs model — displaced the Llama line as Meta's public flagship with natively multimodal reasoning, tool use, and multi-agent 'Contemplating' mode, available at meta.ai with a private API preview.",
+    "hype": "Marked Meta's pivot away from open weights — its first closed frontier release after the open Llama line.",
+    "refs": [
+      "https://ai.meta.com/blog/introducing-muse-spark-msl/"
+    ]
+  },
+  {
+    "id": "claude-opus-4-7",
+    "org": "anthropic",
+    "name": "Claude Opus 4.7",
+    "date": "2026-04-16",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "coding",
+      "agent",
+      "multimodal"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Broadened the Opus line beyond 4.6's planning and code-review focus to high-resolution vision and advanced software engineering, positioned as the bridge into the Claude 5 generation.",
+    "hype": null,
+    "refs": [
+      "https://www.anthropic.com/news/claude-opus-4-7"
+    ]
+  },
+  {
+    "id": "gpt-5-5",
+    "org": "openai",
+    "name": "GPT-5.5",
+    "date": "2026-04-23",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "agent",
+      "reasoning"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Stepped back up to flagship for complex coding, research, and data-analysis work, positioned for agentic long-horizon tasks beyond mid-tier GPT-5.4; shipped with a system card on 2026-04-23.",
+    "hype": null,
+    "refs": [
+      "https://openai.com/index/introducing-gpt-5-5/"
+    ]
+  },
+  {
+    "id": "deepseek-v4",
+    "org": "deepseek",
+    "name": "DeepSeek-V4",
+    "date": "2026-04-24",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights",
+      "moe",
+      "context",
+      "efficiency"
+    ],
+    "stats": {
+      "context": "1M",
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced V3.2 as DeepSeek's flagship, previewing V4-Flash/V4-Pro under MIT with 1M-token context; official releases followed Jul 31 and Aug 13, 2026.",
+    "hype": null,
+    "refs": [
+      "https://en.wikipedia.org/wiki/DeepSeek",
+      "https://www.scriptbyai.com/deepseek-timeline-release-dates/"
+    ]
+  },
+  {
+    "id": "mistral-medium-3-5",
+    "org": "mistral",
+    "name": "Mistral Medium 3.5",
+    "date": "2026-04-28",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "multimodal"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced Mistral Medium 3 as Mistral's flagship-grade general/multimodal release in April 2026, after Mistral Small 4 had shipped in March.",
+    "hype": null,
+    "refs": [
+      "https://www.scriptbyai.com/ai-model-release-calendar/"
+    ]
+  },
+  {
+    "id": "grok-4-3",
+    "org": "xai",
+    "name": "Grok 4.3",
+    "date": "2026-04-30",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "multimodal",
+      "context"
+    ],
+    "stats": {
+      "context": "1M",
+      "mmlu": null,
+      "pricePerMTok": {
+        "in": 1.25,
+        "out": 2.5
+      }
+    },
+    "positioning": "Displaced Grok 4.20 Beta as the consumer flagship with 1M context, native video input and document output, priced at $1.25/$2.50 per M tokens.",
+    "hype": null,
+    "refs": [
+      "https://www.scriptbyai.com/spacexai-timeline-grok/",
+      "https://felloai.com/all-we-know-so-far-about-grok-5/"
+    ]
+  },
+  {
+    "id": "gemini-3-5-flash",
+    "org": "google",
+    "name": "Gemini 3.5 Flash",
+    "date": "2026-05-19",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "agent",
+      "reasoning",
+      "efficiency"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Outperformed Gemini 3.1 Pro on agentic/coding benchmarks at Flash-tier speed — displacing the Pro from the default seat in the Gemini app and AI Mode while kicking off the 3.5 series (3.5 Pro slated later).",
+    "hype": "Headlined Google I/O 2026 as the new default model for the Gemini app and AI Mode.",
+    "refs": [
+      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/",
+      "https://www.scriptbyai.com/google-ai-timeline-biggest-moments/"
+    ]
+  },
+  {
+    "id": "qwen3-7-max",
+    "org": "alibaba",
+    "name": "Qwen3.7-Max",
+    "date": "2026-05-20",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "agent",
+      "coding",
+      "multimodal"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced Qwen3-Max as Alibaba's proprietary flagship, repositioned for the agent era of long-running autonomous workflows, with Plus/visual snapshot variants following in June.",
+    "hype": null,
+    "refs": [
+      "https://www.scriptbyai.com/qwen-timeline/"
+    ]
+  },
+  {
+    "id": "claude-opus-4-8",
+    "org": "anthropic",
+    "name": "Claude Opus 4.8",
+    "date": "2026-05-28",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "coding",
+      "agent"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Closed out the 4.x line holding the #1 Artificial Analysis Intelligence Index (61.4) among peers, the last Opus standing before the Claude 5 generation.",
+    "hype": "The final 4.x Opus — capping a rapid run of point releases ahead of the generation change.",
+    "refs": [
+      "https://www.anthropic.com/news/claude-opus-4-8"
+    ]
+  },
+  {
+    "id": "claude-fable-5",
+    "org": "anthropic",
+    "name": "Claude Fable 5",
+    "date": "2026-06-09",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "agent",
+      "reasoning",
+      "multimodal"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "First generally available Mythos-class Claude, opening the 2026 generation change from the 4.x line, with the stronger Mythos 5 held back under restricted trusted access.",
+    "hype": "The staged release — Fable 5 for everyone, Mythos 5 gated behind 'trusted access' — made access tiers the story of the launch.",
+    "refs": [
+      "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+    ]
+  },
+  {
+    "id": "claude-sonnet-5",
+    "org": "anthropic",
+    "name": "Claude Sonnet 5",
+    "date": "2026-06-30",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "coding",
+      "agent",
+      "efficiency"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": {
+        "in": 2,
+        "out": 10
+      }
+    },
+    "positioning": "Reset the price floor of the new generation's mid lane, shipping as the low-cost agentic workhorse at a permanent $2/$10 per M tokens against the pricier Fable-class flagships.",
+    "hype": null,
+    "refs": [
+      "https://www.anthropic.com/news/claude-sonnet-5"
+    ]
+  },
+  {
+    "id": "gpt-5-6",
+    "org": "openai",
+    "name": "GPT-5.6",
+    "date": "2026-07-09",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "efficiency",
+      "price-disrupt"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Crashed the intelligence-per-dollar curve: marketed as 'frontier intelligence that scales' with markedly better value than GPT-5.5, split into a Sol variant in ChatGPT and a Luna variant for free/API users.",
+    "hype": null,
+    "refs": [
+      "https://openai.com/index/gpt-5-6",
+      "https://openai.com/index/previewing-gpt-5-6-sol/",
+      "https://openai.com/index/chatgpt-for-your-most-ambitious-work/"
+    ]
+  },
+  {
+    "id": "kimi-k3",
+    "org": "others",
+    "name": "Kimi K3",
+    "date": "2026-07-16",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "multimodal",
+      "context",
+      "open-weights",
+      "reasoning"
+    ],
+    "stats": {
+      "context": "1M",
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Scaled the Kimi line from K2's 1T to a 2.8T-parameter flagship with native vision and 1M context, debuting the Kimi Delta Attention architecture — hosted Jul 16, full weights Jul 27.",
+    "hype": null,
+    "refs": [
+      "https://www.scriptbyai.com/kimi-model-timeline/",
+      "https://huggingface.co/moonshotai/Kimi-K3"
+    ]
+  },
+  {
+    "id": "grok-4-5",
+    "org": "xai",
+    "name": "Grok 4.5",
+    "date": "2026-07-16",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "coding",
+      "agent"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": {
+        "in": 2,
+        "out": 6
+      }
+    },
+    "positioning": "Displaced Grok 4.3 as xAI's smartest model at launch, trained alongside Cursor and claiming ~4.2x token efficiency vs Opus 4.8 on SWE Bench Pro at $2/$6 per M tokens.",
+    "hype": null,
+    "refs": [
+      "https://x.ai/news/grok-4-5"
+    ]
+  },
+  {
+    "id": "claude-opus-5",
+    "org": "anthropic",
+    "name": "Claude Opus 5",
+    "date": "2026-07-24",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "agent",
+      "coding",
+      "reasoning"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced Fable-5-class pricing — near-frontier intelligence at half the price — as the new default on Claude Max, with SOTA on Frontier-Bench and GDPval-AA.",
+    "hype": null,
+    "refs": [
+      "https://www.anthropic.com/news/claude-opus-5",
+      "https://platform.claude.com/docs/en/release-notes/overview"
+    ]
+  },
+  {
+    "id": "qwen3-8-max",
+    "org": "alibaba",
+    "name": "Qwen3.8-Max",
+    "date": "2026-08-03",
+    "tier": "flagship",
+    "weights": "open",
+    "tags": [
+      "open-weights",
+      "moe",
+      "context"
+    ],
+    "stats": {
+      "context": "1M",
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced Qwen3.7-Max and answered Kimi K3's 2.8T flagship with a 2.4T-param sparse MoE (~95B active) and 1M-token context — returning Alibaba's top tier to open weights (Aug 12) after the proprietary Max era.",
+    "hype": null,
+    "refs": [
+      "https://en.wikipedia.org/wiki/Qwen",
+      "https://www.scriptbyai.com/qwen-timeline/"
+    ]
+  },
+  {
+    "id": "grok-4-6",
+    "org": "xai",
+    "name": "Grok 4.6",
+    "date": "2026-08-12",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "coding",
+      "agent"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": {
+        "in": 2,
+        "out": 6
+      }
+    },
+    "positioning": "Landed two weeks after Grok 4.5 and matched GPT-5.6 Sol on the Artificial Analysis Intelligence Index (61), making back-to-back frontier cadence the xAI story.",
+    "hype": null,
+    "refs": [
+      "https://x.ai/news/grok-4-6"
+    ]
+  },
+  {
+    "id": "qwen3-8-flash-next",
+    "org": "alibaba",
+    "name": "Qwen3.8-Flash-Next",
+    "date": "2026-08-26",
+    "tier": "mid",
+    "weights": "open",
+    "tags": [
+      "multimodal",
+      "efficiency",
+      "open-weights",
+      "moe"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "First architecture preview of Qwen4: an open multimodal MoE (125B total, 6B active) introducing Qwen Sparse Attention as the efficiency-focused counterpart to Qwen3.8-Max.",
+    "hype": null,
+    "refs": [
+      "https://www.scriptbyai.com/qwen-timeline/"
+    ]
+  },
+  {
+    "id": "claude-fable-5-1",
+    "org": "anthropic",
+    "name": "Claude Fable 5.1",
+    "date": "2026-09-01",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "reasoning",
+      "agent",
+      "coding"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": {
+        "in": 10,
+        "out": 50
+      }
+    },
+    "positioning": "Anthropic's most advanced model line to date, displacing Fable 5 with large gains in agentic scientific research (52.6% Terminal-Bench-Science) and coding, while keeping the one-model, two-safeguard-levels split.",
+    "hype": null,
+    "refs": [
+      "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+    ]
+  },
+  {
+    "id": "gemini-3-8-flash",
+    "org": "google",
+    "name": "Gemini 3.8 Flash",
+    "date": "2026-09-02",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "multimodal",
+      "agent",
+      "coding",
+      "efficiency"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": {
+        "in": 0.75,
+        "out": 3.75
+      }
+    },
+    "positioning": "The Flash line's step past 3.5 — a long-horizon engineering/agent model at $0.75/$3.75 intro pricing per million tokens, plus a restricted Flash Cyber variant for trusted defenders.",
+    "hype": null,
+    "refs": [
+      "https://www.scriptbyai.com/google-ai-timeline-biggest-moments/"
+    ]
+  },
+  {
+    "id": "muse-spark-1-3",
+    "org": "meta",
+    "name": "Muse Spark 1.3",
+    "date": "2026-09-02",
+    "tier": "mid",
+    "weights": "closed",
+    "tags": [
+      "agent",
+      "coding",
+      "multimodal"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Iterated past Muse Spark — roughly 20% fewer tool calls than 1.2 on long-horizon agentic/coding work, while Meta kept an open-weight flank via the Apache 2.0 Muse Glimmer 30B shipped in August.",
+    "hype": null,
+    "refs": [
+      "https://research.meta.ai/blog/introducing-muse-spark-1-3",
+      "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model"
+    ]
+  },
+  {
+    "id": "gpt-6-astra",
+    "org": "openai",
+    "name": "GPT-6 Astra",
+    "date": "2026-09-03",
+    "tier": "flagship",
+    "weights": "closed",
+    "tags": [
+      "reasoning",
+      "agent",
+      "coding"
+    ],
+    "stats": {
+      "context": null,
+      "mmlu": null,
+      "pricePerMTok": null
+    },
+    "positioning": "Displaced GPT-5.6 as OpenAI's most capable broadly deployed model, and the first to reach the 'Critical' cybersecurity level under the Preparedness Framework.",
+    "hype": null,
+    "refs": [
+      "https://openai.com/index/safety-overview-gpt-6-astra",
+      "https://openai.com/index/gpt-6-astra/",
+      "https://openai.com/index/path-to-astra/"
+    ]
+  }
+]

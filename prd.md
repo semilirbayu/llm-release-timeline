@@ -1,6 +1,6 @@
 # PRD: LLM Release Timeline
 
-**Status:** Draft v0.3 · 2026-09-04 — M1+M2 selesai (`models.json` 85 node + positioning/hype); M3 (review manusia) menunggu kamu
+**Status:** **v1.0 · 2026-09-04** — M1–M5 selesai. Live: https://semilirbayu.github.io/llm-release-timeline/ · M3 (review manusia atas `positioning`/`hype`) tetap terbuka sebagai perbaikan konten berkelanjutan
 **Owner:** kamu (editorial) + agent (drafting & build)
 
 ---
